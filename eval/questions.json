@@ -1,0 +1,32 @@
+{
+  "pdf": "sample.pdf",
+  "notes": "expect: each inner list is a group of alternatives; the answer must contain one alternative from every group (case-insensitive). page: the page that holds the answer, or null when the answer is not in the document.",
+  "questions": [
+    {"q": "When was the company founded?", "page": 1, "expect": [["2011"]]},
+    {"q": "Who is the CEO?", "page": 1, "expect": [["Okafor"]]},
+    {"q": "Roughly how many people work at the company?", "page": 1, "expect": [["140"]]},
+    {"q": "What are the core working hours?", "page": 2, "expect": [["10:00", "10 am", "10am", "10 a.m"], ["15:00", "3 pm", "3pm", "3 p.m"]]},
+    {"q": "How many days a week can I work remotely?", "page": 2, "expect": [["three", "3"]]},
+    {"q": "How much is the home office equipment stipend?", "page": 2, "expect": [["600"]]},
+    {"q": "What time does the office open?", "page": 2, "expect": [["07:00", "7:00", "7 am", "7am", "7 a.m"]]},
+    {"q": "How many days of PTO do full-time employees get?", "page": 3, "expect": [["22"]]},
+    {"q": "How many unused PTO days can be carried over?", "page": 3, "expect": [["5", "five"]]},
+    {"q": "How long is parental leave?", "page": 3, "expect": [["16"]]},
+    {"q": "How many paid sick days are there per year?", "page": 3, "expect": [["10", "ten"]]},
+    {"q": "Within how many days must expense claims be submitted?", "page": 4, "expect": [["30", "thirty"]]},
+    {"q": "What is the daily meal allowance when travelling?", "page": 4, "expect": [["55"]]},
+    {"q": "Above what amount are receipts required?", "page": 4, "expect": [["25"]]},
+    {"q": "Which tool is used for expense claims?", "page": 4, "expect": [["Ledgerly"]]},
+    {"q": "What is the minimum password length?", "page": 5, "expect": [["14"]]},
+    {"q": "How quickly must a lost laptop be reported?", "page": 5, "expect": [["24"]]},
+    {"q": "Can customers get store credit after the refund window?", "page": 6, "expect": [["90"]]},
+    {"q": "What is the 401(k) match?", "page": 7, "expect": [["4%", "4 percent", "four percent"]]},
+    {"q": "How large is the yearly learning budget?", "page": 7, "expect": [["1,200", "1200"]]},
+
+    {"q": "What is the company dress code?", "page": null},
+    {"q": "How many parking spaces does the office have?", "page": null},
+    {"q": "What is the company's stock ticker symbol?", "page": null},
+    {"q": "Who is the head of marketing?", "page": null},
+    {"q": "Are pets allowed in the office?", "page": null}
+  ]
+}

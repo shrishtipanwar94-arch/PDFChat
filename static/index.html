@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RAG PDF Chat</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <nav class="navbar border-bottom px-3">
+    <span class="navbar-brand fw-semibold"><i class="bi bi-file-earmark-text me-2"></i>RAG PDF Chat</span>
+    <div class="d-flex align-items-center gap-3">
+      <span id="provider-status" class="small text-body-secondary"></span>
+      <div class="form-check form-switch m-0" title="Stream answers as they are generated">
+        <input class="form-check-input" type="checkbox" id="stream-toggle">
+        <label class="form-check-label small" for="stream-toggle">Stream</label>
+      </div>
+      <button id="theme-toggle" class="btn btn-sm btn-outline-secondary" title="Toggle dark mode">
+        <i class="bi bi-moon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <div class="app-body">
+    <aside class="sidebar border-end p-3">
+      <form id="upload-form" class="mb-3">
+        <label for="file-input" class="form-label small fw-semibold">Upload a PDF</label>
+        <input type="file" id="file-input" class="form-control form-control-sm mb-2" accept="application/pdf,.pdf">
+        <button type="submit" id="upload-btn" class="btn btn-primary btn-sm w-100">
+          <span class="spinner-border spinner-border-sm d-none me-1" id="upload-spinner"></span>
+          Upload &amp; index
+        </button>
+        <div id="upload-error" class="text-danger small mt-2"></div>
+      </form>
+
+      <div class="small fw-semibold mb-2">Your documents</div>
+      <ul id="doc-list" class="list-group list-group-flush small"></ul>
+      <p id="doc-empty" class="small text-body-secondary">No documents yet.</p>
+
+      <p class="small text-body-secondary mt-4 mb-0">
+        Documents are tied to this browser's anonymous session and deleted after a period of inactivity.
+        Chat history stays on this device.
+      </p>
+    </aside>
+
+    <main class="chat d-flex flex-column">
+      <div class="chat-header border-bottom px-3 py-2 d-flex align-items-center justify-content-between">
+        <span id="active-doc" class="fw-semibold text-truncate">Select or upload a document</span>
+        <button id="clear-history" class="btn btn-sm btn-outline-secondary d-none" title="Clear this document's chat history">
+          <i class="bi bi-trash"></i> Clear chat
+        </button>
+      </div>
+
+      <div id="messages" class="messages flex-grow-1 p-3"></div>
+
+      <form id="ask-form" class="border-top p-3 d-flex gap-2">
+        <textarea id="question" class="form-control" rows="1" maxlength="2000"
+                  placeholder="Ask a question about the document…" disabled></textarea>
+        <button id="ask-btn" class="btn btn-primary" type="submit" disabled>
+          <i class="bi bi-send"></i>
+        </button>
+      </form>
+    </main>
+  </div>
+
+  <script type="module" src="/js/chat.js"></script>
+</body>
+</html>
